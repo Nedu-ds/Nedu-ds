@@ -10,3 +10,15 @@ main .main-Work div{
     width: 80%;
     padding: 2vh;
 }
+footer{
+    height: 15vh;
+}
+
+footer .footer-left{
+    width: 100%;
+    text-align: center;
+}
+footer .footer-right{
+    width: 100%;
+    text-align: center;
+}
