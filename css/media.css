@@ -1,0 +1,38 @@
+header{
+    display: block;
+    height: auto;
+}
+
+header .section-left{
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-items: center;   
+    margin: 0;
+}
+
+header nav .nav-bar{
+    display: block;
+    margin-right: 0;
+}
+header nav .nav-bar li{
+    height: 5vh;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 0;
+}
+main{
+    
+}
+
+main .main-home p:first-child{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+main .main-Work{
+    height: 120vh;
+}
+main .main-Work div{
+    height: 50vh;
+}

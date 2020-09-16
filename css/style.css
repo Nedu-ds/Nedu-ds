@@ -9,19 +9,18 @@ body{
     background-color: #f2f2f2;
 }
 header {
-    
-    width: 100%;
     height: 10vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex:1;
+    justify-content: space-between;    
     background-color: black;
     align-items: center;
     left: 0;
     top: 0;
-    
 }
-.section-left{
-    text-align: center;
+header .section-left{
+    margin-left: 10vw;
+    justify-content: center;
 }
 header .section-left span{
     color: white;
@@ -30,9 +29,10 @@ header .section-left span{
 }
 header nav .nav-bar{
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
     list-style: none;
-    margin-right: 10rem;
+    margin-right: 5vw;
 }
 header nav .nav-bar li{
     margin-right: 2rem;   
@@ -45,11 +45,9 @@ header nav .nav-bar li a{
 header nav .nav-bar li a:hover{
     color: #c6c6c6;
     text-decoration-line: underline;
-    
 }
 main{
     width: 100vw;
-    
 }
 main .main-Home{
     background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
@@ -63,7 +61,9 @@ main .main-Home{
     justify-content: center;
     align-items: center;
 }
-
+main .main-Home p:first-child{
+    text-align: center;
+}
 main .main-Home:before{
     content:'';
 	position: absolute;
@@ -105,17 +105,35 @@ main .main-Work{
     grid-template-columns: 2fr 2fr;
 }
 main .main-Work div{
-    margin:0 auto ;
+    margin:5% auto ;
     width: 35vw;
     height: 35vh;
     background-color: white;
     box-shadow: 1px 1px 1px 1px #c6c6c6;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    text-align: center;
+    padding: 2vw;
 }
+main .main-Work .cibersecurity img{
+    height: 10vh;
+    min-width: 10vw;
+}
+
+main .main-Work .cibersecurity p{
+    margin-top: 2vh;
+    max-width: 80vw;
+}
+
 footer{
     width: 100vw;
     height: 10vh;
-    display: grid;   
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     background-color: black;
 }
@@ -123,18 +141,21 @@ footer .footer-left{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 5vw;
 }
 footer .footer-left p{
     color: white;
     font-size: 1rem;
     text-align: center;
 }
+footer .footer-right {
+    margin-right: 5vw;
+}
 footer .footer-right ul{
     display: flex;
+    justify-content: center;
     list-style: none;
-    justify-content: flex-end;
-    margin-right: 150px;
-
+    
 }
 footer .footer-right ul li a{
     font-size: 1rem;
