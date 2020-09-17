@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width:320px)">
 </head>
 <body>
+    <i class="icon-menu burger-button" id="burger-menu"></i>
     <header>
         <section class="section-left">
             <span>DevFolio</span>
         </section>
         <nav>
-            <ul class="nav-bar">
+            <ul class="nav-bar is-active">
                 <li><a href="#main-Home">Home</a></li>
                 <li><a href="#main-About">About</a></li>
                 <li><a href="#main-Work">Work</a></li>
@@ -35,19 +36,18 @@
             </div>
         </section>
         <section class="main-Work" id="main-Work"> 
-            <div class="cibersecurity">
-                <img src="https://marketing4ecommerce.net/wp-content/uploads/2016/07/ciberseguridad-1280x720.jpg" alt="Cibersecurity-Logo">
-                <p><strong>Cibersecurity</strong> </p> 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
+            <div class="main-Work-container">
+                <div class="cibersecurity">
+                    <img src="https://marketing4ecommerce.net/wp-content/uploads/2016/07/ciberseguridad-1280x720.jpg" alt="Cibersecurity-Logo">
+                    <p><strong>Cibersecurity</strong> </p> 
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
+                </div>
+                <div>Technical Support Engineer</div>
+                <div>Sofware Developer</div>
+                <div>Data Scientist</div>
             </div>
-            <div>Technical Support Engineer</div>
-            <div>Sofware Developer</div>
-            <div>Data Scientist</div>
         </section>
         <section class="main-Blog" id="main-Blog"> 
-
-        </section>
-        <section class="main-Contact" id="main-Contact"> 
 
         </section>
     </main>
@@ -65,5 +65,18 @@
             
         </div>
     </footer>
+    <script>
+        console.log("Hola Mundo");
+        const menu = document.querySelector('.nav-bar');
+        const burgerButton = document.querySelector('#burger-menu');
+        burgerButton.addEventListener('click',hideShow);
+        function hideShow(){
+            if (menu.classList.contains('is-active')){
+                menu.classList.remove('is-active');
+            } else {
+                menu.classList.add('is-active');
+            }   
+        }
+    </script>
 </body>
 </html>
