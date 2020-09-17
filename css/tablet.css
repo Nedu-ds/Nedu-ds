@@ -1,15 +1,36 @@
+
+header{
+    height: 50px;
+    position: fixed;
+    top: 0;
+}
+header nav .nav-bar{
+    top: 6vh;
+}
+.burger-button{
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+
+}
 main .main-Work{
-    display: flex;
-    flex-direction: column;
+    display: block;
     align-items: center;
+    height: 175vh;
 }
 
 main .main-Work div{
-    margin-top: 1vh;
-    height: 50vh;
+    display: block;
+    padding-top: 9vh;
+}
+main .main-Work div div{
+    margin-top: 2vh;
+    height: 40vh;
     width: 80%;
     padding: 2vh;
 }
+
 footer{
     height: 15vh;
 }
