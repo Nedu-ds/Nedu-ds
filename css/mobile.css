@@ -29,15 +29,14 @@ main .main-Home p:nth-child(2){
 }
 main .main-About{
     display: block;
-    height: 195vh;
+    height: 230vh;
 }
 main .main-About-container{
-    height: 205vh;
+    height: 230vh;
 }
 
-
 main .main-About .main-About-container .personal-information{
-    height: 120vh;
+    height: 140vh;
 }
 main .main-About-container .personal-information .information{
     display: block;

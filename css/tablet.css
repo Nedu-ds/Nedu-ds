@@ -37,21 +37,23 @@ main .main-Work div div{
 }
 main .main-About{
     display: block;
-    height: 185vh;
+    height: 235vh;
 }
 
 main .main-About-container{
     margin-top: 3vh;
-    height: 180vh;
+    height: 235vh;
 }
 
 
 main .main-About .main-About-container .personal-information{
-    height: 110vh;
+    height: 60%;
 }
 main .main-About-container .personal-information .information{
     display: block;
     width: auto;
+    height: 25%;
+
 }
 
 main .main-About-container .personal-information .information .photo{

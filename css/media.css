@@ -78,10 +78,10 @@ main .main-Work div div{
 }
 main .main-About{
     display: block;
-    height: 130vh;
+    height: 180vh;
 }
 main .main-About-container{
-    height: 150vh;
+    height: 185vh;
 }
 
 main .main-About .main-About-container .personal-information{
@@ -112,7 +112,7 @@ footer{
 
 main .main-About .main-About-container .personal-information{
     display: block;
-    height: 90vh;
+    height: 115vh;
     width: 75vw;
 }
 
