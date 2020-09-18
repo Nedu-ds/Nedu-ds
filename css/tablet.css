@@ -1,12 +1,16 @@
 
 header{
-    height: 50px;
+    height: 55px;
     position: fixed;
     top: 0;
 }
 header nav .nav-bar{
-    top: 5vh;
+    top: 31px;
 }
+header .section-left{
+    height: 55px;
+}
+
 .burger-button{
     top: 10px;
     width: 25px;
@@ -15,6 +19,7 @@ header nav .nav-bar{
 
 }
 main .main-Work{
+    
     display: block;
     align-items: center;
     height: 175vh;
@@ -32,9 +37,12 @@ main .main-Work div div{
 }
 main .main-About{
     display: block;
+    height: 185vh;
 }
+
 main .main-About-container{
-    height: 210vh;
+    margin-top: 3vh;
+    height: 180vh;
 }
 
 
@@ -51,10 +59,12 @@ main .main-About-container .personal-information .information .photo{
     justify-content: center;
 }
 main .main-About-container .personal-information .skills{
+    margin-top: 4vh;
     height:82vh;
 }
 main .main-About .main-About-container .About-me{
-    height: 92vh;
+    height: 85vh;
+    padding: 5vh 1vw;
 }
 
 footer{
