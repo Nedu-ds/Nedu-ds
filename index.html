@@ -106,16 +106,26 @@
         const menu = document.querySelector('.nav-bar');
         const ipad = window.matchMedia('screen and (max-width:768px)');
         const burgerButton = document.querySelector('#burger-menu');
+        const main = document.querySelector('main');
         ipad.addListener(validation)
         validation(ipad);
 
         function validation(event){
             if (event.matches){
-                burgerButton.addEventListener('click',hideShow)
+                burgerButton.addEventListener('click',hideShow);
+                main.addEventListener('click', hideMenu);
             } else {
-                burgerButton.removeEventListener('click',hideShow)
+                burgerButton.removeEventListener('click',hideShow);
+                main.removeEventListener('click', hideMenu);
             }
         }
+        
+        main.addEventListener('click', hideMenu);
+
+        function hideMenu(){
+            menu.classList.remove('is-active');
+        }
+        
         function hideShow(){
             if (menu.classList.contains('is-active')){
                 menu.classList.remove('is-active');
