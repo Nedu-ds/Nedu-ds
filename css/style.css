@@ -155,9 +155,10 @@ main .main-Home p.line{
         width: 0;
     }
     to {
-        width: 20%;
+        width: 6em;
     }
 }
+
 @keyframes blinkTextCursor {
     from {
         border-right-color: rgba(255, 255, 255, 0.75);
