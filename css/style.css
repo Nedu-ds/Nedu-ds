@@ -144,10 +144,10 @@ main .main-Home p.line{
     white-space: nowrap;
     text-align: center;
     border-right: 2px solid rgba(255,255,255, 0.75);
-    overflow: hidden;transform: translate(-5%);
+    overflow: hidden;transform: translate(-1%);
 }
 .anim-typewriter {
-    animation: typewriter 4s steps(30) 0.5s 1 normal both,
+    animation: typewriter 2.5s steps(30) 1s 1 normal both,
     blinkTextCursor 600ms steps(30) infinite normal;
 }
 @keyframes typewriter {
@@ -155,7 +155,7 @@ main .main-Home p.line{
         width: 0;
     }
     to {
-        width: 6em;
+        width: 20%;
     }
 }
 @keyframes blinkTextCursor {
