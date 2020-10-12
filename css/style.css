@@ -108,7 +108,7 @@ main{
 main .main-Home{
     background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -136,12 +136,37 @@ main .main-Home p:first-child{
     font-size: 5rem;
     position: relative;
 }
-main .main-Home p:nth-child(2){
+main .main-Home p.line{
     margin-top: 20px;
     color: white;
     font-size: 3rem;
     position: relative;
+    white-space: nowrap;
+    text-align: center;
+    border-right: 2px solid rgba(255,255,255, 0.75);
+    overflow: hidden;transform: translate(-5%);
 }
+.anim-typewriter {
+    animation: typewriter 4s steps(30) 0.5s 1 normal both,
+    blinkTextCursor 600ms steps(30) infinite normal;
+}
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 6em;
+    }
+}
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
 main .main-About{
     top: 10vh;
     width: 100vw;
