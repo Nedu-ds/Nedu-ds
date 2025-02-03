@@ -3,134 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafio_Nestor</title>
-    <link rel="stylesheet" href="./css/style.css" media="screen and (max-width:2000px)">
-    <link rel="stylesheet" href="./css/large.css" media="screen and (max-width:1420px)">
-    <link rel="stylesheet" href="./css/media.css" media="screen and (max-width:768px)">
-    <link rel="stylesheet" href="./css/tablet.css" media="screen and (max-width:480px)">
-    <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width:320px)">
+    <title>Portafolio Néstor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0084ff;
+            --secondary-color: #0039b5;
+            --accent-color: #1df288;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+            overflow-x: hidden;
+        }
+
+           /* Header y navegación */
+           header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0084ff;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: #0084ff;
+        }
+
+        .burger-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Menú responsive */
+        @media (max-width: 768px) {
+            .nav-bar {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                gap: 1.5rem;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-bar.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .burger-menu {
+                display: block;
+            }
+        }
+
+        /* Hero Section Mejorada */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, rgba(26, 25, 25, 0.9), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2') center/cover;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* Tarjetas Mejoradas */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 5%;
+            background: #1a1a1a;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card-front {
+            background: white;
+            color: black;
+            transform: rotateY(0deg);
+            z-index: 2;
+        }
+
+        .card-back {
+            background: linear-gradient(45deg, #00ff88, #0077B5);
+            color: white;
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        .card-container:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary-color);
+        }
+
+          @media (max-width: 768px) {
+            .card-inner {
+                height: 300px;
+            }
+        }
+
+        .card-front h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .card-back {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            transform: rotateY(180deg);
+            color: #111;
+        }
+
+        .card-back ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .card-back li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-back i {
+            margin-right: 10px;
+            color: #111;
+        }
+
+        /* Sección About Actualizada */
+        .about {
+            padding: 100px 5%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about .card {
+            background: linear-gradient(45deg, #6d6c6c, #524e4e);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, var(--primary-color), transparent);
+            animation: rotate 4s linear infinite;
+        }
+
+        .about .card-content {
+            position: relative;
+            z-index: 1;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        /* Footer Animado */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer div {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        footer a {
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Colores oficiales de las plataformas */
+        .fa-linkedin {
+            color: #0077B5; /* Azul de LinkedIn */
+        }
+
+        .fa-github {
+            color: #ebe3e3; /* Negro de GitHub */
+        }
+
+        .fa-instagram {
+            background: radial-gradient(circle at 30% 107%, 
+                #fdf497 0%, 
+                #fdf497 5%, 
+                #fd5949 45%,
+                #d6249f 60%,
+                #285AEB 90%); /* Degradado de Instagram */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .fa-envelope {
+            color: #f0eceb; /* Rojo de Gmail */
+        }
+
+        footer a:hover {
+            transform: translateY(-3px);
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px var(--primary-color); }
+            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .card-inner { height: 350px; }
+            nav ul { display: none; }
+            .burger-button { display: block; }
+        }
+
+        /* Menú responsive */
+        @media (max-width: 768px) {
+            .nav-bar {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(99, 145, 230, 0.2);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                gap: 1.5rem;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-bar.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .burger-menu {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-    <i class="icon-menu burger-button" id="burger-menu"></i>
     <header>
-        <section class="section-left">
-            <span>DevFolio</span>
-        </section>
+        <div class="logo">FOLIO</div>
+        <button class="burger-menu">☰</button>
         <nav>
             <ul class="nav-bar">
-                <li><a href="#main-Home">Home</a></li>
-                <li><a href="#main-About">About</a></li>
-                <li><a href="#main-Work">Work</a></li>
-                <li><a href="#main-Blog">Blog</a></li>
-                <li><a href="#footer">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="main-Home" id="main-Home">
-            <p>Néstor Duque</p>
-            <p class="line anim-typewriter">Cibersecurity Expert</p>
-        </section>
-        <section class="main-About" id="main-About"> 
-            <div class="main-About-container">
-                <div class="personal-information">
-                    <div class="information"> 
-                        <div class="photo">
-                            <img src="./fonts/Foto.png" alt="Data-Scientist-Logo">
-                        </div>
-                        <div class="data">
-                            <p><strong>Name:</strong>  Néstor Duque</p><br>
-                            <p><strong>Profile:</strong>  Cibersecurity Expert</p><br>
-                            <p><strong>Email:</strong>  nestor_duque@hotmail.com</p>
-                        </div>
-                    </div>
-                    <div class="skills">
-                        <p><strong>Skills</strong> </p><br>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi esse nam blanditiis atque voluptatibus doloribus pariatur tenetur debitis ipsam assumenda reiciendis cupiditate in nihil eligendi cumque id, deleniti magni recusandae.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi esse nam blanditiis atque voluptatibus doloribus pariatur tenetur debitis ipsam assumenda reiciendis cupiditate in nihil eligendi cumque id, deleniti magni recusandae.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi esse nam blanditiis atque voluptatibus doloribus pariatur tenetur debitis ipsam assumenda reiciendis cupiditate in nihil eligendi cumque id, deleniti magni recusandae.</p>
-                    </div>
-                </div>
-                <div class="About-me">
-                    <p><strong>About Me</strong></p><br>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur aspernatur dolorum incidunt voluptate non harum reprehenderit corrupti iste repudiandae sapiente. Aliquam expedita laboriosam eligendi quidem earum non maiores qui quisquam!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, velit corrupti reprehenderit cumque excepturi ipsa, quam omnis commodi labore aperiam debitis, eos fugit eveniet rerum quisquam reiciendis consequuntur alias? Veniam.</p>
-                </div>
-                
-            </div>
-        </section>
-        <section class="main-Work" id="main-Work"> 
-            <div class="main-Work-container">
-                <div class="main-Work-container-area">
-                    <img src="https://marketing4ecommerce.net/wp-content/uploads/2016/07/ciberseguridad-1280x720.jpg" alt="Cibersecurity-Logo">
-                    <p><strong>Cibersecurity</strong> </p> 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
-                </div>
-                <div class="main-Work-container-area">
-                    <img src="https://sites.google.com/site/elmundoenmismanos123/_/rsrc/1487191110318/home/conceptos-basicos-de-redes-e-internet/REDES-1.jpg" alt="TS-Engineer-Logo">
-                    <p><strong>Technical Support Engineer</strong> </p> 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
-                </div>
-                <div class="main-Work-container-area">
-                    <img src="https://img-a.udemycdn.com/course/750x422/2370324_79ee_2.jpg" alt="FrontEnd-Logo">
-                    <p><strong>Front End Developer</strong> </p> 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
-                </div>
-                <div class="main-Work-container-area">
-                    <img src="https://miro.medium.com/max/925/1*E1haIGB9K4K89PsFZgm-pw.jpeg" alt="Data-Scientist-Logo">
-                    <p><strong>Data Scientist</strong> </p> 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, eum adipisci repudiandae consectetur doloribus corrupti doloremque sunt animi quaerat quam</p>
-                </div>
-            </div>
-        </section>
-        <section class="main-Blog" id="main-Blog"> 
 
-        </section>
-    </main>
-    <footer id="footer">
-        <div class="footer-left">
-            <p id="footer-left-mail"><i class="icon-mail"></i></p></p>
-            <p>nestor_duque@hotmail.com</p>
+    <section id="main-Home" class="hero">
+        <div class="hero-content">
+            <h1>Néstor Duque</h1>
+            <p class="anim-typewriter">Cybersecurity Specialist</p>
         </div>
-        <div class="footer-right">
-            <ul>
-                <li id="twitter" title="Twitter"><a href=""><i class="icon-twitter"></i></a></li>
-                <li id="linkedin" title="LinkedIn"><a href="https://www.linkedin.com/in/nestor-duque-18681782/"><i class="icon-linkedin"></i></a></li>
-                <li id="github" title="Github"><a href=""><i class="icon-github"></i></a></li>
-            </ul>
-            
+    </section>
+
+    <section class="about">
+        <div class="card">
+            <div class="card-content">
+                <h2>About Me</h2>
+                <p>With over 8 years of experience in cybersecurity and software development, I specialize in creating secure digital solutions that combine cutting-edge technology with robust protection mechanisms.</p>
+                <div class="skills">
+                    <h3>Core Competencies:</h3>
+                    <ul>
+                        <li><i class="fas fa-shield-alt"></i> Ethical Hacking & Penetration Testing</li>
+                        <li><i class="fas fa-brain"></i> Machine Learning Security</li>
+                        <li><i class="fas fa-network-wired"></i> Network Security Architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cards">
+        <div class="card-container">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.N9b3tKfxmVabOnIacgO6fAHaE8%26pid%3DApi&f=1&ipt=9d7c22667adb2cf98d6e45acf9991284d8c34ecd7c70479f77bdecc4f3e3cc35&ipo=images" alt="Cybersecurity">
+                    <h3>Cybersecurity</h3>
+                    <p>Advanced Threat Protection</p>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <ul>
+                        <li><i class="fa fa-graduation-cap"></i>Master in Cibersecutiry</li>    
+                        <li><i class="fas fa-certificate"></i> CEH Certified</li>
+                        <li><i class="fas fa-certificate"></i> ECIH, Incident Response Handler</li>
+                        <li><i class="fas fa-lock"></i> SOC Operations&Orchestation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://miro.medium.com/max/925/1*E1haIGB9K4K89PsFZgm-pw.jpeg" alt="Data Science">
+                    <h3>Data Science</h3>
+                    <p>Intelligent Analytics</p>
+                </div>
+                <div class="card-back">
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><i class="fas fa-chart-line"></i> Predictive Modeling</li>
+                        <li><i class="fas fa-robot"></i> Neural Networks</li>
+                        <li><i class="fas fa-database"></i> Big Data Processing</li>
+                        <li><i class="fas fa-cloud"></i> AWS & Azure Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.LpJZhlWhUZXuEZg6p9idmgHaFj%26pid%3DApi&f=1&ipt=668e4b24f5a6a246772b1f740e728e32be4280c8abcc4ba32063459bc235892e&ipo=images" alt="Development">
+                    <h3>Python Developer</h3>
+                    <p>Modern Web Solutions</p>
+                </div>
+                <div class="card-back">
+                    <h3>Tech Stack</h3>
+                    <ul>
+                        <li><i class="fab fa-react"></i> React & Node.js</li>
+                        <li><i class="fas fa-server"></i> REST API Design</li>
+                        <li><i class="fas fa-shield-alt"></i> Security-First Approach</li>
+                        <li><i class="fas fa-cloud"></i> Cloud Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.mbgEC-y__eu5UEOpESQCAgHaEK%26pid%3DApi&f=1&ipt=2afbf6ae66ea9da8b3c224954eabcac2c897d05b4f5c213d60cb5ed003cf0595&ipo=images" alt="IoT">
+                    <h3>Network Security</h3>
+                    <p>Smart Connected Devices</p>
+                </div>
+                <div class="card-back">
+                    <h3>Specializations</h3>
+                    <ul>
+                        <li><i class="fas fa-microchip"></i> Embedded Systems</li>
+                        <li><i class="fas fa-wifi"></i> Wireless Protocols</li>
+                        <li><i class="fas fa-shield-alt"></i> Device Security</li>
+                        <li><i class="fas fa-brain"></i> AI Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div>
+            <a href="https://www.linkedin.com/in/tuperfil" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/tuperfil" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/tuperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" id="email-icon"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>
-    <script>
-        //console.log("Hola Mundo");
-        const menu = document.querySelector('.nav-bar');
-        const ipad = window.matchMedia('screen and (max-width:768px)');
-        const burgerButton = document.querySelector('#burger-menu');
-        const main = document.querySelector('main');
-        ipad.addListener(validation)
-        validation(ipad);
 
-        function validation(event){
-            if (event.matches){
-                burgerButton.addEventListener('click',hideShow);
-                main.addEventListener('click', hideMenu);
-            } else {
-                burgerButton.removeEventListener('click',hideShow);
-                main.removeEventListener('click', hideMenu);
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card-container, .about .card').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Email Encryption
+        const email = 'mailto:' + ['malwbit','gmail.com'].join('@');
+        document.getElementById('email-icon').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = email;
+        });
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navBar = document.querySelector('.nav-bar');
+
+        // Mostrar menú con hover (solo desktop)
+        burgerMenu.addEventListener('mouseenter', () => {
+            if (window.innerWidth <= 768) {
+                navBar.classList.add('active');
             }
-        }
-        function hideMenu(){
-            menu.classList.remove('is-active');
-        }
+        });
+
+        // Toggle menú con click (móvil)
+        burgerMenu.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!navBar.contains(e.target) && !burgerMenu.contains(e.target)) {
+                navBar.classList.remove('active');
+            }
+        });
+
+        // Cerrar menú al seleccionar un item
+        document.querySelectorAll('.nav-bar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navBar.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al cambiar tamaño de pantalla
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navBar.classList.remove('active');
+            }
+        });
         
-        function hideShow(){
-            if (menu.classList.contains('is-active')){
-                menu.classList.remove('is-active');
-                menu.cl
-            } else {
-                menu.classList.add('is-active');
-            }   
-        }
     </script>
 </body>
 </html>
